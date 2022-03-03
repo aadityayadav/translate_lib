@@ -7,6 +7,7 @@ dependencies:
 - pip 
 - pip:
   - googletrans
+  - google_trans_new
   - Flask
   - pyinstaller
 
