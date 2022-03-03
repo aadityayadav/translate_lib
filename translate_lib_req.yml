@@ -1,0 +1,20 @@
+name: translate_lib_env
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.8.0
+- pip 
+- pip:
+  - googletrans
+  - Flask
+  - pyinstaller
+
+# Run commands to make library:
+# conda env create -f translate_lib_req.yml
+# To activate library:
+# conda activate ./translate_lib_env
+# or
+# conda activate translate_lib_env
+# To update:
+# conda env update --file translate_lib_req.yml --prune
