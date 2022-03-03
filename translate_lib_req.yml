@@ -6,10 +6,13 @@ dependencies:
 - python=3.8.0
 - pip 
 - pip:
-  - googletrans
+  - googletrans==4.0.0-rc1
   - google_trans_new
   - Flask
   - pyinstaller
+
+#instead of googletrans install the new alpha version:
+# pip install googletrans==4.0.0-rc1
 
 # Run commands to make library:
 # conda env create -f translate_lib_req.yml

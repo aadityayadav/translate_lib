@@ -1,6 +1,6 @@
 import googletrans
 from googletrans import * 
-from google_trans_new import google_translator
+# from google_trans_new import google_translator
 import csv
 
 py_keys = []
@@ -29,10 +29,10 @@ for key in all_lang:
 
         for word in py_keys:
             py_key = word[0]
-            translator = google_translator()  
-            translate_text = translator.translate(py_key, lang_tgt = key)
+            translator = Translator()  
+            translate_text = translator.translate(py_key, dest = key)
             translate_text_arr = []
-            translate_text_arr.append(translate_text)
+            translate_text_arr.append(translate_text.text)
             writer.writerow(translate_text_arr)
         
 
