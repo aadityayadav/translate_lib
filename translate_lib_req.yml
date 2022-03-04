@@ -10,6 +10,7 @@ dependencies:
   - google_trans_new
   - Flask
   - pyinstaller
+  - pathlib
 
 #instead of googletrans install the new alpha version:
 # pip install googletrans==4.0.0-rc1

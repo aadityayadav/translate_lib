@@ -14,6 +14,10 @@ with open('python_keyword.csv', mode = 'r') as file:
 
 all_lang = googletrans.LANGUAGES
 
+#funciton to split screen incase word is giving TypeError
+
+def split_str(s):
+  return [ch for ch in s]
 
 # for adding to a csv file
 
@@ -30,9 +34,18 @@ for key in all_lang:
         for word in py_keys:
             py_key = word[0]
             translator = Translator()  
-            translate_text = translator.translate(py_key, dest = key)
+            translate_text_content = ''
+            try:
+                translate_text = translator.translate(py_key, dest = key)
+                translate_text_content = translate_text.text
+            except TypeError:
+                py_key_sy = []
+                py_key_sy = split_str(py_key)
+                for sy in py_key_sy:
+                    translate_text = translator.translate(sy, dest = key)
+                    translate_text_content = translate_text_content + translate_text.text
             translate_text_arr = []
-            translate_text_arr.append(translate_text.text)
+            translate_text_arr.append(translate_text_content)
             writer.writerow(translate_text_arr)
         
 
