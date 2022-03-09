@@ -27,7 +27,7 @@ for key in all_lang:
 
     with open(name_file, 'w') as new_file:
         writer = csv.writer(new_file)
-        header_tag = "List of all Python Keywords in " + lang
+        header_tag = "Words"
         header = [header_tag]
         writer.writerow(header)
 
