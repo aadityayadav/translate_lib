@@ -94,4 +94,6 @@ python pre_process.py run_dir my_project -l hindi_to_english.json -m main.py
 
 # Documentation for `pre_process.py` 
 
+# Limitations and how you can help
+
 
