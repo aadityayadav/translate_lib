@@ -92,6 +92,6 @@ python pre_process.py run_dir my_project -l hindi_to_english.json -m main.py
 - `-l`: Path to the language mapping JSON file (default: hindi_to_english.json).
 - `-m`: Name of the main file to execute after translation (required).
 
-
+# Documentation for `pre_process.py` 
 
 
