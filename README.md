@@ -3,7 +3,7 @@ This Python package allows users to code Python in their native language. The pa
 
 **Supported Python Features:** 
 - Keywords: Control flow (`if`, `else`, `for`, `while`, etc.), function definitions, class definitions, etc.
-- Basic Libraries: `math`, `random`, `os`, `time`.
+- Basic Libraries: `math`
 - Basic Syntax: Variables, loops, conditionals, functions, classes, and imports.
 
 # Purpose and Scope
@@ -21,11 +21,11 @@ The goal of this project is to enable beginners to learn Python programming in t
 
 
 # Using the CLI tool
-The pre_processor.py script includes a command-line interface (CLI) that allows users to translate Python files or directories written in a native language to English-based Python syntax. Below are the available commands and their usage.
+The run_cli.py script (located at app/translate_lib/src) includes a command-line interface (CLI) that allows users to translate Python files or directories written in a native language to English-based Python syntax. Below are the available commands and their usage.
 
 ## 1. Command syntax:
 ```
-python pre_process.py <command> <input_path> [options]
+python run_cli.py <command> <input_path> [options]
 ```
 - `<command>`: The action to perform (e.g., translate, run, etc.).
 - `<input_path>`: The file or directory to process.
@@ -35,11 +35,11 @@ python pre_process.py <command> <input_path> [options]
 a. `translate `: Translates a single Python file from the source language to English and saves it to an output file.
 - Usage:
 ```
-python pre_process.py translate <input_file> -o <output_file> -l <language_file>
+python run_cli.py translate <input_file> -o <output_file> -l <language_file>
 ```
 - Example:
 ```
-python pre_process.py translate my_script.py -o translated_script.py -l hindi_to_english.json
+python run_cli.py translate my_script.py -o translated_script.py -l hindi_to_english.json
 ```
 **Options**:
 - `-o`: Path to the output file (default: translated.py).
@@ -48,31 +48,31 @@ python pre_process.py translate my_script.py -o translated_script.py -l hindi_to
 b. `run`: Translates a single Python file, saves it to an output file and then executes the translated code.
 - Usage:
 ```
-python pre_process.py run <input_file> -o <output_file> -l <language_file>
+python run_cli.py run <input_file> -o <output_file> -l <language_file>
 ```
 - Example:
 ```
-python pre_process.py run my_script.py -o translated_script.py -l hindi_to_english.json
+python run_cli.py run my_script.py -o translated_script.py -l hindi_to_english.json
 ```
 ---
 c.  `run_direct`: Translates and executes a Python file **without** saving the translated file. 
 - Usage:
 ```
-python pre_process.py run_direct <input_file> -l <language_file>
+python run_cli.py run_direct <input_file> -l <language_file>
 ```
 - Example:
 ```
-python pre_process.py run_direct my_script.py -l hindi_to_english.json
+python run_cli.py run_direct my_script.py -l hindi_to_english.json
 ```
 ---
 d.  `translate_dir`: Translates all Python files in a directory and its subdirectories, saving the results in a new output directory.
 - Usage:
 ```
-python pre_process.py translate_dir <input_dir> -o <output_dir> -l <language_file> -m <main_file>
+python run_cli.py translate_dir <input_dir> -o <output_dir> -l <language_file> -m <main_file>
 ```
 - Example:
 ```
-python pre_process.py translate_dir my_project -o translate_project -l hindi_to_english.json -m main.py
+python run_cli.py translate_dir my_project -o translate_project -l hindi_to_english.json -m main.py
 ```
 - Options:
 - `-o`: Path to the output directory (default: translated_dir).
@@ -81,18 +81,18 @@ python pre_process.py translate_dir my_project -o translate_project -l hindi_to_
 e. `run_dir`: Translates all Python files in a directory and then executes a specified main file from the translated directory. Note: Does not save a translated directory. 
 - Usage:
 ```
-python pre_process.py run_dir <input_dir> -l <language_file> -m <main_file>
+python run_cli.py run_dir <input_dir> -l <language_file> -m <main_file>
 ```
 - Example:
 ```
-python pre_process.py run_dir my_project -l hindi_to_english.json -m main.py
+python run_cli.py run_dir my_project -l hindi_to_english.json -m main.py
 ```
 - Options:
 
 - `-l`: Path to the language mapping JSON file (default: hindi_to_english.json).
 - `-m`: Name of the main file to execute after translation (required).
 
-# Documentation for `pre_process.py` 
+# Documentation for `run_cli.py` 
 
 # Limitations and how you can help
 
