@@ -185,7 +185,7 @@ preprocessor = PreProcessor("hindi_to_english.json")
 preprocessor.execute_directory("native_project", "main.py")
 ```
 
-# Limitations and how you can help
+# Functionality and Feature Limitations + How To Contribute
 Please note the current limitations in this Python package (your help would be greatly appreciated to mitigate these limitations!):
 
 ## 1. Limited Language Keyword Mapping
@@ -193,14 +193,14 @@ Please note the current limitations in this Python package (your help would be g
 - Only the provided or configured keywords, methods, and functions will be translated. Custom keywords or unsupported syntax will remain untranslated.
 - If you wish to include a library that you personally find useful, please translate all relevant keywords and update the respective `.json` file for your language.
 
-## 2. Syntax Errors in Source Files
-- Files with syntax errors will fail to run after translation. These errors will be displayed in English.
-- If you are able to assist in transalting the errors, fork this repository and reach out to us with your solution!
-
 ## 3. Translation Ambiguities
 - Context-sensitive keywords or ambiguous mappings may lead to incorrect translations.
 - If you notice such ambiguities, please update the respective `.json` files accordingly.
 
-## 4. Limited Language Files
+## 3. Limited Language Files
 - Arguably the biggest limitation, we require the community's support in translating the main Python keywords in as many languages as possible.
 - If you notice that your native language has not been represented yet, please feel free to create a json language mapping. If you would like a reference, please refer to `hindi_to_english.json` and simply replace the hindi words with the respective keyword translations in your language. Save this file to `app/translate_lib/src/lang_map_json`.
+
+## 4. Syntax Errors in Source Files (Feature TBA)
+- Files with syntax errors will fail to run after translation. These errors will be displayed in English.
+- If you are able to assist in transalting the errors, fork this repository and reach out to us with your solution!
