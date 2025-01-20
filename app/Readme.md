@@ -6,6 +6,8 @@ This Python package allows users to code Python in their native language. The pa
 - Basic Libraries: `math`
 - Basic Syntax: Variables, loops, conditionals, functions, classes, and imports.
 
+[Link to repository](https://github.com/aadityayadav/translate_lib)
+
 # Purpose and Scope
 The goal of this project is to enable beginners to learn Python programming in their native language. By being able to use Python syntax and keywords in a more familiar language, learners can focus on understanding programming concepts without being hindered by unfamiliar English terms. This approach ensures that learners can build foundational programming skills before transitioning to English-based Python coding.
 
