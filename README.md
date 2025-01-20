@@ -92,8 +92,115 @@ python run_cli.py run_dir my_project -l hindi_to_english.json -m main.py
 - `-l`: Path to the language mapping JSON file (default: hindi_to_english.json).
 - `-m`: Name of the main file to execute after translation (required).
 
-# Documentation for `run_cli.py` 
+# `PreProcessor` Class functions
+a. `translate_file`: Translates a single Python file from the source language to English and saves the translated version to a specified output file.
+
+Definition:
+```
+def translate_file(self, input_file, output_file):
+```
+Parameters:
+
+- `input_file`: Path to the Python file in the native language to be translated.
+- `output_file`: Path where the translated Python file will be saved.
+
+How It Works:
+
+- Reads the content of the `input_file`.
+- Calls `translate_code` to perform the translation.
+- Writes the translated code to the `output_file`.
+
+Example:
+```
+preprocessor = PreProcessor("hindi_to_english.json")
+preprocessor.translate_file("my_script.py", "translated_script.py")
+```
+---
+b. `execute_file_directly`: Translates a single Python file and executes the translated code without saving it to a file.
+
+Definition:
+```
+def execute_file_directly(self, input_file):
+```
+Parameters:
+
+- `input_file`: Path to the Python file in the native language to be translated and executed.
+
+How It Works:
+
+- Reads the content of the `input_file`.
+- Calls `translate_code` to perform the translation.
+- Executes the translated code using `exec()`.
+
+Example:
+```
+preprocessor = PreProcessor("hindi_to_english.json")
+preprocessor.execute_file_directly("my_script.py")
+```
+---
+c. `translate_directory`: Translates all `.py` files in a directory and its subdirectories and saves the translated files to a specified output directory.
+
+Definition:
+```
+def translate_directory(self, input_dir, output_dir):
+```
+Parameters:
+- `input_dir`: Path to the directory containing Python files in the native language.
+- `output_dir`: Path to the directory where the translated Python files will be saved.
+
+How It Works:
+
+- Recursively traverses all subdirectories of `input_dir`.
+- Identifies `.py` files for translation.
+- Translates each file using `translate_file` and saves them in the `output_dir`.
+
+Example:
+```
+preprocessor = PreProcessor("hindi_to_english.json")
+preprocessor.translate_directory("\path\to\native_scripts", "\path\to\translated_scripts")
+```
+---
+d.  `execute_directory`: Translates all Python files in a directory and executes a specified main file from the translated directory.
+
+Definition:
+```
+def execute_directory(self, input_dir, main_file):
+```
+
+Parameters:
+
+- `input_dir`: Path to the directory containing Python files in the native language.
+- `main_file`: Name of the main Python file to execute after translation.
+
+How It Works:
+
+- Calls `translate_directory` to translate all files in `input_dir` and save them in a temporary directory (`temp_translated_dir`).
+- Locates the translated version of `main_file` in the temporary directory.
+- Adds the temporary directory to `sys.path` to allow imports from translated modules.
+Reads and executes the translated `main_file`.
+
+Example Usage:
+```
+preprocessor = PreProcessor("hindi_to_english.json")
+preprocessor.execute_directory("native_project", "main.py")
+```
 
 # Limitations and how you can help
+Please note the current limitations in this Python package (your help would be greatly appreciated to mitigate these limitations!):
 
+## 1. Limited Language Keyword Mapping
+- The tool relies on a JSON-based language mapping file for translations.
+- Only the provided or configured keywords, methods, and functions will be translated. Custom keywords or unsupported syntax will remain untranslated.
+- If you wish to include a library that you personally find useful, please translate all relevant keywords and update the respective `.json` file for your language.
 
+## 2. Syntax Errors in Source Files
+- Files with syntax errors will fail to run after translation. These errors will be displayed in English.
+- If you are able to assist in transalting the errors, fork this repository and reach out to us with your solution!
+
+## 3. Translation Ambiguities
+- Context-sensitive keywords or ambiguous mappings may lead to incorrect translations.
+- If you notice such ambiguities, please update the respective `.json` files accordingly.
+
+## 4. Limited Language Files
+- Arguably the biggest limitation, we require the community's support in translating the main Python keywords in as many languages as possible.
+- If you notice that your native language has not been represented yet, please feel free to create a json language mapping. If you would like a reference, please refer to `hindi_to_english.json` and simply replace the hindi words with the respective keyword translations in your language. Save this file to `app/translate_lib/src/lang_map_json`.
